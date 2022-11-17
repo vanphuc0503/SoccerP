@@ -5,7 +5,6 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.navigation.NavController
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity() {
 
@@ -13,8 +12,6 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
     abstract val layoutId: Int
 
     abstract val viewModel: VM
-
-//    abstract val navController: NavController?
 
     open lateinit var binding: VB
 

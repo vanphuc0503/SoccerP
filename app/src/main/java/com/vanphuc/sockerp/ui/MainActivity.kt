@@ -14,14 +14,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     override val layoutId = R.layout.activity_main
 
-//    override var navController: NavController =
-//        supportFragmentManager.findNavigationController(R.id.fragment_container)
-
     override val viewModel: MainViewModel by viewModels()
 
     override fun initView() {
-        val ds = supportFragmentManager.findNavigationController(R.id.fragment_container)
-        binding.navBottom.setupWithNavController(ds)
+//        val ds = supportFragmentManager.findNavigationController(R.id.fragment_container)
+//        binding.navBottom.setupWithNavController(ds)
     }
 
     override fun initEvent() {}
