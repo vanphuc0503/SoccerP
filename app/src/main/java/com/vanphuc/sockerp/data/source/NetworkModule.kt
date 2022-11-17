@@ -38,6 +38,7 @@ object NetworkModule {
     ): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
+            .client(okHttpClient)
             .baseUrl(SOCCER_URL)
             .build()
     }

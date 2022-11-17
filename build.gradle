@@ -29,6 +29,13 @@ buildscript {
         lifecycle_runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
 
         fragment_ktx = "androidx.fragment:fragment-ktx:1.5.4"
+
+        //navigation component
+        def nav_version = "2.5.3"
+        navigation_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:$nav_version"
+        navigation_ui_ktx = "androidx.navigation:navigation-ui-ktx:$nav_version"
+        navigation_dynamic_fragment = "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+        navigation_testing = "androidx.navigation:navigation-testing:$nav_version"
     }
 }
 

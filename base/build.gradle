@@ -51,4 +51,9 @@ dependencies {
     implementation lifecycle_viewmodel
     implementation lifecycle_livedata
     implementation lifecycle_runtime_ktx
+
+    implementation navigation_fragment_ktx
+    implementation navigation_ui_ktx
+    implementation navigation_dynamic_fragment
+    androidTestImplementation navigation_testing
 }

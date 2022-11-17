@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SockerP</string>
+    <string name="text_home">Home</string>
+    <string name="text_news">News</string>
+    <string name="text_setting">Settings</string>
 </resources>
