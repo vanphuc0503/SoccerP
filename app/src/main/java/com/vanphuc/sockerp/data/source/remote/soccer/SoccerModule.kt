@@ -1,10 +1,13 @@
 package com.vanphuc.sockerp.data.source.remote.soccer
 
+import com.vanphuc.sockerp.data.source.SoccerRetrofit
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -13,55 +16,56 @@ object SoccerModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(
-        // Potential dependencies of this type
-    ): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl("https://apiv2.apifootball.com/")
-            .build()
-    }
+    fun provideCompetitionApi(@SoccerRetrofit retrofit: Retrofit): CompetitionApi =
+        retrofit.create(CompetitionApi::class.java)
 
     @Provides
     @Singleton
-    fun provideCompetitionApi(retrofit: Retrofit): CompetitionApi = retrofit.create(CompetitionApi::class.java)
+    fun provideCountryApi(@SoccerRetrofit retrofit: Retrofit): CountryApi =
+        retrofit.create(CountryApi::class.java)
 
     @Provides
     @Singleton
-    fun provideCountryApi(retrofit: Retrofit): CountryApi = retrofit.create(CountryApi::class.java)
+    fun provideEventApi(@SoccerRetrofit retrofit: Retrofit): EventApi =
+        retrofit.create(EventApi::class.java)
 
     @Provides
     @Singleton
-    fun provideEventApi(retrofit: Retrofit): EventApi = retrofit.create(EventApi::class.java)
+    fun provideH2HApi(@SoccerRetrofit retrofit: Retrofit): H2HApi =
+        retrofit.create(H2HApi::class.java)
 
     @Provides
     @Singleton
-    fun provideH2HApi(retrofit: Retrofit): H2HApi = retrofit.create(H2HApi::class.java)
+    fun provideLineupApi(@SoccerRetrofit retrofit: Retrofit): LineupApi =
+        retrofit.create(LineupApi::class.java)
 
     @Provides
     @Singleton
-    fun provideLineupApi(retrofit: Retrofit): LineupApi = retrofit.create(LineupApi::class.java)
+    fun providePlayerApi(@SoccerRetrofit retrofit: Retrofit): PlayerApi =
+        retrofit.create(PlayerApi::class.java)
 
     @Provides
     @Singleton
-    fun providePlayerApi(retrofit: Retrofit): PlayerApi = retrofit.create(PlayerApi::class.java)
+    fun providePredictionApi(@SoccerRetrofit retrofit: Retrofit): PredictionApi =
+        retrofit.create(PredictionApi::class.java)
 
     @Provides
     @Singleton
-    fun providePredictionApi(retrofit: Retrofit): PredictionApi = retrofit.create(PredictionApi::class.java)
+    fun provideStandingApi(@SoccerRetrofit retrofit: Retrofit): StandingApi =
+        retrofit.create(StandingApi::class.java)
 
     @Provides
     @Singleton
-    fun provideStandingApi(retrofit: Retrofit): StandingApi = retrofit.create(StandingApi::class.java)
+    fun provideStatisticApi(@SoccerRetrofit retrofit: Retrofit): StatisticApi =
+        retrofit.create(StatisticApi::class.java)
 
     @Provides
     @Singleton
-    fun provideStatisticApi(retrofit: Retrofit): StatisticApi = retrofit.create(StatisticApi::class.java)
+    fun provideTeamApi(@SoccerRetrofit retrofit: Retrofit): TeamApi =
+        retrofit.create(TeamApi::class.java)
 
     @Provides
     @Singleton
-    fun provideTeamApi(retrofit: Retrofit): TeamApi = retrofit.create(TeamApi::class.java)
-
-    @Provides
-    @Singleton
-    fun provideTopScoreApi(retrofit: Retrofit): TopScoreApi = retrofit.create(TopScoreApi::class.java)
+    fun provideTopScoreApi(@SoccerRetrofit retrofit: Retrofit): TopScoreApi =
+        retrofit.create(TopScoreApi::class.java)
 }
