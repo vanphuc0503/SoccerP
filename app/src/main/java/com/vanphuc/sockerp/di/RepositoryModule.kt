@@ -1,4 +1,4 @@
-package com.vanphuc.sockerp.data.repository
+package com.vanphuc.sockerp.di
 
 import com.vanphuc.sockerp.data.repository.country.CountryRepository
 import com.vanphuc.sockerp.data.repository.country.CountryRepositoryImpl

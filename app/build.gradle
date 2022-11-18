@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'kotlin-parcelize'
 }
 
 apply from: 'autodimen.gradle.kts'
@@ -94,6 +95,7 @@ dependencies {
     implementation gson
 
     implementation moshi
+    implementation moshi_kotlin
     implementation converter_moshi
     kapt moshi_codegen
 

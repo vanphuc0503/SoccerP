@@ -1,9 +1,15 @@
-package com.vanphuc.sockerp.data.source
+package com.vanphuc.sockerp.di
 
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.vanphuc.sockerp.data.NetworkResponseAdapterFactory
+import com.vanphuc.sockerp.data.source.SoccerRetrofit
+import com.vanphuc.sockerp.data.source.remote.ApiKeyInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -23,23 +29,41 @@ object NetworkModule {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
+    @Provides
+    @Singleton
+    fun providesInterceptor(): Interceptor = ApiKeyInterceptor()
+
     @Singleton
     @Provides
-    fun providesOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+    fun providesOkHttpClient(
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        interceptor: Interceptor
+    ): OkHttpClient =
         OkHttpClient.Builder()
+            .addInterceptor(interceptor)
             .addInterceptor(httpLoggingInterceptor)
             .build()
+
+    @Singleton
+    @Provides
+    fun provideMoshi(): Moshi {
+        return Moshi.Builder()
+            .addLast(KotlinJsonAdapterFactory())
+            .build()
+    }
 
     @Provides
     @Singleton
     @SoccerRetrofit
     fun provideRetrofit(
+        moshi: Moshi,
         okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
-            .addConverterFactory(MoshiConverterFactory.create())
-            .client(okHttpClient)
             .baseUrl(SOCCER_URL)
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addCallAdapterFactory(NetworkResponseAdapterFactory())
+            .client(okHttpClient)
             .build()
     }
 }

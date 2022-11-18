@@ -1,6 +1,6 @@
 package com.vanphuc.sockerp.data.source.remote.soccer
 
-import com.vanphuc.sockerp.data.BaseResponse
+import com.vanphuc.sockerp.data.GenericResponse
 import com.vanphuc.sockerp.data.model.Teams
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -11,5 +11,5 @@ interface TeamApi {
     suspend fun getTeams(
         @Query("team_id") teamId: Int,
         @Query("league_id") leagueId: Int? = null,
-    ): BaseResponse<List<Teams>>
+    ): GenericResponse<List<Teams>>
 }

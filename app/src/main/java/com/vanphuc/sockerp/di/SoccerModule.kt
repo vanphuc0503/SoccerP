@@ -1,17 +1,17 @@
-package com.vanphuc.sockerp.data.source.remote.soccer
+package com.vanphuc.sockerp.di
 
 import com.vanphuc.sockerp.data.source.SoccerRetrofit
+import com.vanphuc.sockerp.data.source.remote.soccer.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
-import okhttp3.OkHttpClient
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
+
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 object SoccerModule {
 
     @Provides

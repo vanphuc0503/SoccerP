@@ -8,18 +8,18 @@ import com.vanphuc.sockerp.ui.common.BaseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding, BaseViewModel>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override val layoutId: Int
         get() = R.layout.fragment_home
 
-    override val viewModel: BaseViewModel by viewModels()
+    override val viewModel: HomeViewModel by viewModels()
 
     override fun initView() {
 
     }
 
     override fun initData() {
-
+        super.initData()
     }
 }

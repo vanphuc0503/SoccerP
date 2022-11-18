@@ -3,13 +3,12 @@ package com.vanphuc.sockerp.ui.common
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vanphuc.sockerp.ui.SingleLiveData
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.*
 
 abstract class BaseViewModel : ViewModel() {
 
     // loading flag
-    val isLoading = SingleLiveData<Boolean>(false)
+    val isLoading = SingleLiveData(false)
 
     // error message
     val errorMessage = SingleLiveData("")
@@ -51,10 +50,29 @@ abstract class BaseViewModel : ViewModel() {
                 isLoading.postValue(true)
             }
             withContext(Dispatchers.IO) {
-                callback(action())
+                val value = action()
+                callback(value)
             }
-
             if (needBlock) isLoading.postValue(false)
+        }
+    }
+
+    fun <T : Any> networkExecuteTask(
+        needBlock: Boolean = true,
+        action: suspend () -> T,
+        callback: (T) -> Unit = {}
+    ) {
+        executeTask(
+            needBlock = needBlock,
+            action = action
+        ) { result ->
+            try {
+                (result as? T)?.let {
+                    callback(it)
+                }
+            } catch (ex: Exception) {
+                errorMessage.postValue(ex.toString())
+            }
         }
     }
 }

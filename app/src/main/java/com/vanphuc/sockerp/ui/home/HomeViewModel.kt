@@ -15,10 +15,10 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun getAllCountries() {
-        executeTask(
-            action = { getAllCountriesUseCase.invoke(UseCase.None()) }
-        ) { result ->
-            
+        networkExecuteTask(
+            action = { getAllCountriesUseCase.invoke(UseCase.None) }
+        ) {
+
         }
     }
 }

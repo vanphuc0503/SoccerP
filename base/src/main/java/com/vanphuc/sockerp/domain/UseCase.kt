@@ -7,5 +7,5 @@ abstract class UseCase<Type, in Params> where Type : Any? {
         return run(params)
     }
 
-    class None
+    object None
 }
