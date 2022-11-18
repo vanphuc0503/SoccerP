@@ -1,4 +1,4 @@
-package com.vanphuc.sockerp.data.model
+package com.vanphuc.sockerp.data
 
 data class BaseResponse<T>(
     val data: T? = null,

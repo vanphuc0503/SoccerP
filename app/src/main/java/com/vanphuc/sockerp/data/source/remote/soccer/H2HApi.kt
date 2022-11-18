@@ -1,7 +1,6 @@
 package com.vanphuc.sockerp.data.source.remote.soccer
 
-import com.vanphuc.sockerp.data.model.BaseResponse
-import com.vanphuc.sockerp.data.model.Competitions
+import com.vanphuc.sockerp.data.BaseResponse
 import com.vanphuc.sockerp.data.model.H2H
 import retrofit2.http.GET
 import retrofit2.http.Query

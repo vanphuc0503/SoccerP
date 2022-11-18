@@ -1,28 +1,32 @@
-package com.vanphuc.sockerp.ui.base
+package com.vanphuc.sockerp.ui.common
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.navigation.NavController
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity() {
 
     @get:LayoutRes
-    abstract val layoutId: Int
+    protected abstract val layoutId: Int
 
-    abstract val viewModel: VM
+    protected abstract val viewModel: VM
 
-    open lateinit var binding: VB
+    protected open lateinit var binding: VB
+
+    protected abstract val rootNav: NavController?
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (::binding.isInitialized.not()) {
             binding = DataBindingUtil.setContentView(this, layoutId)
-        }
+            binding.lifecycleOwner = this
 
-        initView()
-        initEvent()
+            initView()
+            initEvent()
+        }
     }
 
     abstract fun initView()

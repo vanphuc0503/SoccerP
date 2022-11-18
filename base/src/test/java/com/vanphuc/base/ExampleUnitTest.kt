@@ -1,4 +1,4 @@
-package com.vanphuc.myapplication
+package com.vanphuc.base
 
 import org.junit.Test
 

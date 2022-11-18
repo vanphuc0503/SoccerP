@@ -1,8 +1,8 @@
 package com.vanphuc.sockerp.extension
 
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.NavController
+import androidx.annotation.IdRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 
-fun FragmentManager.findNavigationController(layoutId: Int): NavController =
-    (findFragmentById(layoutId) as NavHostFragment).navController
+fun AppCompatActivity.supportFindNavController(@IdRes viewId: Int) =
+    (supportFragmentManager.findFragmentById(viewId) as NavHostFragment).navController

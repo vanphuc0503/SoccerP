@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Native Android/Android/SoccerP/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Native Android/Android/SoccerP/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Native Android/Android/SoccerP/app/src/main/res/layout/fragment_news.xml" value="0.14722222222222223" />
+        <entry key="..\:/Native Android/Android/SoccerP/app/src/main/res/layout/fragment_settings.xml" value="0.14722222222222223" />
+        <entry key="..\:/Native Android/Android/SoccerP/app/src/main/res/menu/main_navigation_bottom.xml" value="0.17916666666666667" />
         <entry key="..\:/Phuc/SockerP/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Phuc/SockerP/app/src/main/res/layout/fragment_home.xml" value="0.2109375" />
         <entry key="..\:/Phuc/SockerP/app/src/main/res/layout/fragment_news.xml" value="0.2109375" />

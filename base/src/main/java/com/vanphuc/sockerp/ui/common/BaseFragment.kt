@@ -1,4 +1,4 @@
-package com.vanphuc.sockerp.ui.base
+package com.vanphuc.sockerp.ui.common
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,9 +14,9 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
     @get:LayoutRes
     abstract val layoutId: Int
 
-    abstract val viewModel: VM
+    protected abstract val viewModel: VM
 
-    open lateinit var binding: VB
+    protected lateinit var binding: VB
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +24,8 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
         savedInstanceState: Bundle?
     ): View? {
         if (!::binding.isInitialized) {
-            binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
+            val baseInflater = LayoutInflater.from(requireActivity())
+            binding = DataBindingUtil.inflate(baseInflater, layoutId, container, false)
         }
         return binding.root
     }

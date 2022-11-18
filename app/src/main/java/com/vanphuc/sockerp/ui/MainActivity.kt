@@ -5,21 +5,25 @@ import androidx.navigation.NavController
 import androidx.navigation.ui.setupWithNavController
 import com.vanphuc.sockerp.R
 import com.vanphuc.sockerp.databinding.ActivityMainBinding
-import com.vanphuc.sockerp.extension.findNavigationController
-import com.vanphuc.sockerp.ui.base.BaseActivity
+import com.vanphuc.sockerp.extension.supportFindNavController
+import com.vanphuc.sockerp.ui.common.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
-    override val layoutId = R.layout.activity_main
+    override val layoutId: Int
+        get() = R.layout.activity_main
 
     override val viewModel: MainViewModel by viewModels()
 
+    override val rootNav: NavController
+        get() = supportFindNavController(R.id.fragment_container)
+
     override fun initView() {
-//        val ds = supportFragmentManager.findNavigationController(R.id.fragment_container)
-//        binding.navBottom.setupWithNavController(ds)
+        binding.navBottom.setupWithNavController(rootNav)
     }
 
     override fun initEvent() {}
+
 }
