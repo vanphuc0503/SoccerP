@@ -14,7 +14,7 @@ buildscript {
         gson = "com.google.code.gson:gson:2.9.0"
 
         moshi_kotlin = "com.squareup.moshi:moshi-kotlin:1.14.0"
-        moshi    = "com.squareup.moshi:moshi:1.14.0"
+        moshi = "com.squareup.moshi:moshi:1.14.0"
         converter_moshi = "com.squareup.retrofit2:converter-moshi:2.9.0"
         moshi_codegen = "com.squareup.moshi:moshi-kotlin-codegen:1.14.0"
 
