@@ -8,18 +8,18 @@ import com.vanphuc.sockerp.ui.common.BaseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NewsFragment : BaseFragment<FragmentNewsBinding, BaseViewModel>() {
+class NewsFragment : BaseFragment<FragmentNewsBinding, NewsViewModel>() {
 
     override val layoutId: Int
         get() = R.layout.fragment_news
 
-    override val viewModel: BaseViewModel by viewModels()
+    override val viewModel: NewsViewModel by viewModels()
 
     override fun initView() {
 
     }
 
     override fun initData() {
-
+        super.initData()
     }
 }

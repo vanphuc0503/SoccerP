@@ -24,4 +24,4 @@ sealed class NetworkResponse<out T : Any, out U : Any> {
     data class UnknownError(val error: Throwable?) : NetworkResponse<Nothing, Nothing>()
 }
 
-typealias GenericResponse<S> = NetworkResponse<S, Error>
+typealias GenericResponse<S> = NetworkResponse<S, ErrorResponse>
