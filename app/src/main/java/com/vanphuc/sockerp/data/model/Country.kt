@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @JsonClass(generateAdapter = true)
 data class Country(
-    @Json(name = "country_id") val country_id: String,
-    @Json(name = "country_logo") val country_logo: String,
-    @Json(name = "country_name") val country_name: String
+    @Json(name = "country_id") val countryId: String,
+    @Json(name = "country_logo") val countryLogo: String,
+    @Json(name = "country_name") val countryName: String
 ) : Parcelable

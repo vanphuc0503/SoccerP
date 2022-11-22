@@ -37,12 +37,8 @@ class NetworkResponseAdapterFactory : CallAdapter.Factory() {
         val successBodyType = getParameterUpperBound(0, responseType)
         val errorBodyType = getParameterUpperBound(1, responseType)
 
-        val errorBodyConverter = try {
+        val errorBodyConverter =
             retrofit.nextResponseBodyConverter<Any>(null, errorBodyType, annotations)
-        } catch (ex: Exception) {
-            println("Test: ${ex.message}")
-            retrofit.nextResponseBodyConverter<Any>(null, errorBodyType, annotations)
-        }
 
         return NetworkResponseAdapter<Any, Any>(successBodyType, errorBodyConverter)
     }

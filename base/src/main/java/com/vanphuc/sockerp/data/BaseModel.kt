@@ -1,7 +1,8 @@
 package com.vanphuc.sockerp.data
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-
-open class BaseModel : Serializable {
+@Parcelize
+open class BaseModel : Parcelable {
 }
