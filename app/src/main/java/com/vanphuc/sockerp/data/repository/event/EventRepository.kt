@@ -2,6 +2,7 @@ package com.vanphuc.sockerp.data.repository.event
 
 import com.vanphuc.sockerp.data.GenericResponse
 import com.vanphuc.sockerp.data.model.Match
+import com.vanphuc.sockerp.ui.common.BaseResponse
 import retrofit2.http.Query
 import java.util.*
 
@@ -14,5 +15,5 @@ interface EventRepository {
         leagueId: Int?,
         matchId: Int?,
         teamId: Int?
-    ): GenericResponse<List<Match>>
+    ): GenericResponse<BaseResponse<List<Match>>>
 }

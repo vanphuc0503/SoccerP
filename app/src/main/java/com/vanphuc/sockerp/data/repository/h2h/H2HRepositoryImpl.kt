@@ -3,6 +3,7 @@ package com.vanphuc.sockerp.data.repository.h2h
 import com.vanphuc.sockerp.data.GenericResponse
 import com.vanphuc.sockerp.data.model.H2H
 import com.vanphuc.sockerp.data.source.remote.soccer.H2HApi
+import com.vanphuc.sockerp.ui.common.BaseResponse
 import javax.inject.Inject
 
 class H2HRepositoryImpl @Inject constructor(
@@ -13,7 +14,7 @@ class H2HRepositoryImpl @Inject constructor(
         firstTeam: String,
         secondTeam: String,
         timeZone: String?
-    ): GenericResponse<List<H2H>> =
+    ): GenericResponse<BaseResponse<List<H2H>>> =
         h2HApi.getH2H(
             firstTeam = firstTeam,
             secondTeam = secondTeam,

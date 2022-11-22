@@ -1,5 +1,6 @@
 package com.vanphuc.sockerp.data
 
+import android.util.Log
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
@@ -33,12 +34,15 @@ class NetworkResponseAdapterFactory : CallAdapter.Factory() {
 
         // the response type is ApiResponse and should be parameterized
         check(responseType is ParameterizedType) { "Response must be parameterized as NetworkResponse<Foo> or NetworkResponse<out Foo>" }
-
         val successBodyType = getParameterUpperBound(0, responseType)
         val errorBodyType = getParameterUpperBound(1, responseType)
 
-        val errorBodyConverter =
+        val errorBodyConverter = try {
             retrofit.nextResponseBodyConverter<Any>(null, errorBodyType, annotations)
+        }catch (ex: Exception) {
+            Log.d("TEST", "get: $ex")
+            retrofit.nextResponseBodyConverter<Any>(null, errorBodyType, annotations)
+        }
 
         return NetworkResponseAdapter<Any, Any>(successBodyType, errorBodyConverter)
     }

@@ -3,6 +3,7 @@ package com.vanphuc.sockerp.data.repository.prediction
 import com.vanphuc.sockerp.data.GenericResponse
 import com.vanphuc.sockerp.data.model.Predictions
 import com.vanphuc.sockerp.data.source.remote.soccer.PredictionApi
+import com.vanphuc.sockerp.ui.common.BaseResponse
 import java.util.*
 import javax.inject.Inject
 
@@ -16,7 +17,7 @@ class PredictionRepositoryImpl @Inject constructor(
         countryId: Int?,
         leagueId: Int?,
         matchId: Int?
-    ): GenericResponse<List<Predictions>> =
+    ): GenericResponse<BaseResponse<List<Predictions>>> =
         predictionApi.getPredictions(
             from = from,
             to = to,

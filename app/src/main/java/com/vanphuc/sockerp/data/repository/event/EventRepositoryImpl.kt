@@ -3,6 +3,7 @@ package com.vanphuc.sockerp.data.repository.event
 import com.vanphuc.sockerp.data.GenericResponse
 import com.vanphuc.sockerp.data.model.Match
 import com.vanphuc.sockerp.data.source.remote.soccer.EventApi
+import com.vanphuc.sockerp.ui.common.BaseResponse
 import java.util.*
 import javax.inject.Inject
 
@@ -18,7 +19,7 @@ class EventRepositoryImpl @Inject constructor(
         leagueId: Int?,
         matchId: Int?,
         teamId: Int?
-    ): GenericResponse<List<Match>> =
+    ): GenericResponse<BaseResponse<List<Match>>> =
         eventApi.getEvents(
             from = from,
             to = to,

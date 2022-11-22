@@ -2,6 +2,7 @@ package com.vanphuc.sockerp.data.source.remote.soccer
 
 import com.vanphuc.sockerp.data.GenericResponse
 import com.vanphuc.sockerp.data.model.Match
+import com.vanphuc.sockerp.ui.common.BaseResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.*
@@ -17,5 +18,5 @@ interface EventApi {
         @Query("league_id") leagueId: Int? = null,
         @Query("match_id") matchId: Int? = null,
         @Query("team_id") teamId: Int? = null
-    ): GenericResponse<List<Match>>
+    ): GenericResponse<BaseResponse<List<Match>>>
 }

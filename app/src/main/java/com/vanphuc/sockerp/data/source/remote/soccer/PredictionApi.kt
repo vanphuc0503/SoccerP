@@ -2,6 +2,7 @@ package com.vanphuc.sockerp.data.source.remote.soccer
 
 import com.vanphuc.sockerp.data.GenericResponse
 import com.vanphuc.sockerp.data.model.Predictions
+import com.vanphuc.sockerp.ui.common.BaseResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.*
@@ -15,5 +16,5 @@ interface PredictionApi {
         @Query("country_id") countryId: Int? = null,
         @Query("league_id") leagueId: Int? = null,
         @Query("match_id") matchId: Int? = null,
-    ): GenericResponse<List<Predictions>>
+    ): GenericResponse<BaseResponse<List<Predictions>>>
 }
